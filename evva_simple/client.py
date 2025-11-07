@@ -111,7 +111,7 @@ class EvvaClient:
         except requests.exceptions.ConnectionError as e:
             raise EvvaAPIError(f"Connection error: {str(e)}")
         except requests.exceptions.RequestException as e:
-            if not isinstance(e, (EvvaAPIError, EvvaAuthenticationError, EvvaNotFoundError)):
+            if not isinstance(e, (EvvaAPIError, EvvaAuthenticationError, EvvaNotFoundError, EvvaValidationError)):
                 raise EvvaAPIError(f"Request failed: {str(e)}")
             raise
 
